@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sunset Strategic Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FF7E67", // Coral
+                        "sunset-plum": "#1A1025", // Deep Violet Base
+                        "sunset-deep": "#2D1B3D", // Surface Plum
+                        "sunset-coral": "#FF7E67",
+                        "sunset-peach": "#FFB38E",
+                        "sunset-amber": "#FFD07F",
+                        "border-plum": "#3D2A52",
+                    },
+                    fontFamily: {
+                        "sans": ["'Plus Jakarta Sans'", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.375rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply bg-sunset-plum text-white font-sans antialiased;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(45, 27, 61, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .sunset-glow {
+            box-shadow: 0 0 20px rgba(255, 126, 103, 0.15);
+        }
+    </style>
+</head>
+<body class="selection:bg-sunset-coral/30">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex-shrink-0 border-r border-border-plum bg-sunset-plum/80 p-5 flex flex-col justify-between">
+<div class="flex flex-col gap-10">
+<div class="flex items-center gap-3 px-2">
+<div class="bg-gradient-to-br from-sunset-coral to-sunset-peach size-9 rounded-xl flex items-center justify-center text-sunset-plum">
+<span class="material-symbols-outlined font-bold">wb_twilight</span>
+</div>
+<div>
+<h1 class="text-sm font-bold tracking-tight uppercase text-sunset-peach">Sunset Strategic</h1>
+<p class="text-[10px] text-sunset-peach/50 uppercase tracking-widest font-semibold">Elite Dashboard</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1.5">
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sunset-peach/60 hover:bg-sunset-deep hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[22px]">dashboard_customize</span>
+<span class="text-sm font-semibold">Executive Hub</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl bg-sunset-deep text-sunset-coral shadow-lg border border-sunset-coral/20 cursor-pointer">
+<span class="material-symbols-outlined text-[22px]">calendar_today</span>
+<span class="text-sm font-bold">Content Calendar</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sunset-peach/60 hover:bg-sunset-deep hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[22px]">query_stats</span>
+<span class="text-sm font-semibold">ROI Analytics</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sunset-peach/60 hover:bg-sunset-deep hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[22px]">auto_awesome</span>
+<span class="text-sm font-semibold">Brand Strategy</span>
+</div>
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-xl text-sunset-peach/60 hover:bg-sunset-deep hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+<span class="text-sm font-semibold">Platform Config</span>
+</div>
+</nav>
+</div>
+<div class="flex flex-col gap-5">
+<div class="bg-sunset-deep/50 rounded-2xl p-4 border border-border-plum">
+<div class="flex justify-between items-center mb-2.5">
+<span class="text-[10px] text-sunset-amber font-bold uppercase tracking-wider">Quota Utilized</span>
+<span class="text-[10px] text-sunset-peach/70 font-bold">85%</span>
+</div>
+<div class="h-1.5 w-full bg-sunset-plum rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-sunset-coral to-sunset-peach" style="width: 85%"></div>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-sunset-coral to-sunset-peach text-sunset-plum py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity sunset-glow">
+<span class="material-symbols-outlined font-bold text-lg">add_box</span>
+                    Create Campaign
+                </button>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden bg-gradient-to-br from-sunset-plum to-[#251633]">
+<header class="h-20 border-b border-border-plum bg-sunset-plum/40 flex items-center justify-between px-10 backdrop-blur-xl">
+<div class="flex items-center gap-10">
+<h2 class="text-xl font-bold tracking-tight">Executive Analytics</h2>
+<div class="flex items-center gap-1 bg-sunset-deep/60 p-1.5 rounded-xl border border-border-plum">
+<button class="px-5 py-2 rounded-lg text-xs font-bold bg-sunset-coral text-sunset-plum shadow-md">Calendar View</button>
+<button class="px-5 py-2 rounded-lg text-xs font-bold text-sunset-peach/70 hover:text-white transition-colors">List View</button>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col items-end">
+<span class="text-[10px] text-sunset-peach/50 font-bold uppercase tracking-widest">Budget Remaining</span>
+<span class="font-bold text-sunset-amber text-lg">$4,250.00</span>
+</div>
+<div class="flex gap-3">
+<button class="p-2.5 bg-sunset-deep border border-border-plum rounded-xl text-sunset-peach hover:text-white hover:border-sunset-peach/30 transition-all">
+<span class="material-symbols-outlined text-[22px]">notifications</span>
+</button>
+<div class="size-11 rounded-full bg-cover bg-center border-2 border-sunset-coral p-0.5" data-alt="Executive user profile avatar" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3O2PMrOTW0NujJLYzmJlAHHLorK3Tkc1YtWr8yljMsCgWcWBYF6-lRj5gDKVgAbGGQ7J9ASzpNwerf0vN-CfnaD7tqLklrHBH7loKL4NklFhKmS9RX_RlfqZyWllzWPfLF0w08QrmrvNiyPE0-lT-oIG2taiLZO9xmly8nvgbqfbRrXBoPOdP_yZdvRDDF-J7bcaaE4FkNjCoK-jAO6mGIM34BMActQIOjKHjx2vVTHIMFsL6Vj-wqJWUKhC91MCpcAVpE2tbOrjv')"></div>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-auto p-8 space-y-8">
+<div class="grid grid-cols-4 gap-6">
+<div class="glass-card p-6 rounded-2xl border-l-4 border-l-sunset-coral">
+<p class="text-[11px] text-sunset-peach/50 font-bold uppercase tracking-widest mb-2">Monthly ROI</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold text-white tracking-tight">+240%</h3>
+<span class="text-xs text-sunset-coral font-bold flex items-center bg-sunset-coral/10 px-3 py-1 rounded-full">+12.4%</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl">
+<p class="text-[11px] text-sunset-peach/50 font-bold uppercase tracking-widest mb-2">Total Reach</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold text-white tracking-tight">1.2M</h3>
+<span class="text-xs text-sunset-peach font-bold flex items-center bg-sunset-peach/10 px-3 py-1 rounded-full">+5.2%</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl">
+<p class="text-[11px] text-sunset-peach/50 font-bold uppercase tracking-widest mb-2">Budget Spent</p>
+<div class="flex items-end justify-between">
+<h3 class="text-3xl font-bold text-white tracking-tight">$12.5k</h3>
+<span class="text-xs text-sunset-amber font-bold flex items-center bg-sunset-amber/10 px-3 py-1 rounded-full">-2.1%</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-2xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2">
+<span class="material-symbols-outlined text-sunset-amber text-lg">workspace_premium</span>
+</div>
+<p class="text-[11px] text-sunset-amber font-bold uppercase tracking-widest mb-2">Q4 Brand Goal</p>
+<div class="flex flex-col gap-3">
+<h3 class="text-3xl font-bold text-white">78%</h3>
+<div class="w-full h-2 bg-sunset-plum rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-sunset-amber via-sunset-peach to-sunset-coral" style="width: 78%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex gap-8 h-[calc(100vh-340px)] min-h-[600px]">
+<div class="flex-[3] glass-card border border-border-plum rounded-2xl flex flex-col overflow-hidden">
+<div class="p-6 border-b border-border-plum flex items-center justify-between bg-sunset-deep/30">
+<div class="flex items-center gap-5">
+<h3 class="text-xl font-bold tracking-tight">October 2024</h3>
+<div class="flex gap-2">
+<button class="p-1.5 text-sunset-peach/50 hover:text-white transition-colors bg-sunset-plum/40 rounded-lg"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="p-1.5 text-sunset-peach/50 hover:text-white transition-colors bg-sunset-plum/40 rounded-lg"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="px-4 py-2 text-xs font-bold border border-border-plum rounded-xl flex items-center gap-2 bg-sunset-plum/50 hover:bg-sunset-deep transition-all text-sunset-peach">
+<span class="material-symbols-outlined text-sm">filter_alt</span> Filter
+                                </button>
+<button class="px-4 py-2 text-xs font-bold border border-border-plum rounded-xl flex items-center gap-2 bg-sunset-plum/50 hover:bg-sunset-deep transition-all text-sunset-peach">
+<span class="material-symbols-outlined text-sm">ios_share</span> Export
+                                </button>
+</div>
+</div>
+<div class="grid grid-cols-7 border-b border-border-plum bg-sunset-deep/10">
+<div class="py-3 text-center text-[11px] text-sunset-peach/40 font-bold uppercase tracking-widest">Mon</div>
+<div class="py-3 text-center text-[11px] text-sunset-peach/40 font-bold uppercase tracking-widest">Tue</div>
+<div class="py-3 text-center text-[11px] text-sunset-peach/40 font-bold uppercase tracking-widest">Wed</div>
+<div class="py-3 text-center text-[11px] text-sunset-peach/40 font-bold uppercase tracking-widest">Thu</div>
+<div class="py-3 text-center text-[11px] text-sunset-peach/40 font-bold uppercase tracking-widest">Fri</div>
+<div class="py-3 text-center text-[11px] text-sunset-coral font-bold uppercase tracking-widest">Sat</div>
+<div class="py-3 text-center text-[11px] text-sunset-coral font-bold uppercase tracking-widest">Sun</div>
+</div>
+<div class="grid grid-cols-7 flex-1">
+<div class="border-r border-b border-border-plum/40 p-3 text-[11px] font-bold text-sunset-peach/20">26</div>
+<div class="border-r border-b border-border-plum/40 p-3 text-[11px] font-bold text-sunset-peach/20">27</div>
+<div class="border-r border-b border-border-plum/40 p-3 text-[11px] font-bold text-sunset-peach/20">28</div>
+<div class="border-r border-b border-border-plum/40 p-3 text-[11px] font-bold text-sunset-peach/20">29</div>
+<div class="border-r border-b border-border-plum/40 p-3 text-[11px] font-bold text-sunset-peach/20">30</div>
+<div class="border-r border-b border-border-plum/40 p-3 text-sm font-bold bg-white/5">1</div>
+<div class="border-b border-border-plum/40 p-3 text-sm font-bold bg-white/5">2</div>
+<div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer group">
+<span class="text-sm font-bold">3</span>
+<div class="bg-sunset-coral/10 border border-sunset-coral/20 p-2 rounded-lg text-[10px] text-white">
+<div class="flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-[12px] text-sunset-coral">image</span> IG Post</div>
+<div class="text-sunset-peach/60 mt-0.5">10:00 AM</div>
+</div>
+</div>
+<div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer">
+<span class="text-sm font-bold">4</span>
+</div>
+<div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 bg-sunset-coral/5 hover:bg-sunset-coral/10 transition-colors cursor-pointer relative ring-1 ring-sunset-coral/30 ring-inset">
+<span class="text-sm font-bold">5</span>
+<div class="bg-sunset-amber/20 border border-sunset-amber/30 p-2 rounded-lg text-[10px] text-white">
+<div class="flex items-center gap-1 font-bold text-sunset-amber"><span class="material-symbols-outlined text-[12px]">movie</span> Brand Reel</div>
+<div class="opacity-70 mt-0.5">04:30 PM</div>
+</div>
+</div>
+<div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer">
+<span class="text-sm font-bold">6</span>
+<div class="bg-sunset-deep/80 border border-border-plum p-2 rounded-lg text-[10px] text-sunset-peach/80">
+<div class="flex items-center gap-1 font-bold"><span class="material-symbols-outlined text-[12px] text-sunset-peach">history_edu</span> LinkedIn</div>
+<div class="opacity-60 mt-0.5">09:15 AM</div>
+</div>
+</div>
+<div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer">
+<span class="text-sm font-bold text-sunset-coral">7</span>
+<div class="bg-sunset-coral p-2 rounded-lg text-[10px] text-sunset-plum font-bold shadow-lg">
+<div class="flex items-center justify-between">
+<span>X Threads</span>
+<span class="material-symbols-outlined text-[12px] font-bold">check_circle</span>
+</div>
+</div>
+</div>
+<div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer bg-white/5">
+<span class="text-sm font-bold">8</span>
+</div>
+<div class="border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer bg-white/5">
+<span class="text-sm font-bold">9</span>
+</div>
+<script>
+                                for(let i=10; i<=31; i++) {
+                                    document.write(`
+                                        <div class="border-r border-b border-border-plum/40 p-3 flex flex-col gap-2 hover:bg-sunset-coral/5 transition-colors cursor-pointer">
+                                            <span class="text-sm font-bold ${i%7==0 || i%7==6 ? 'text-sunset-coral' : 'text-white/90'}">${i}</span>
+                                            ${i%12==0 ? '<div class="w-2/3 h-1 bg-sunset-peach/20 rounded-full mt-auto"></div>' : ''}
+                                        </div>
+                                    `);
+                                }
+                            </script>
+</div>
+</div>
+<div class="flex-1 glass-card border border-border-plum rounded-2xl flex flex-col">
+<div class="p-6 border-b border-border-plum flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sunset-amber">sensors</span>
+<span class="text-sm font-bold uppercase tracking-widest text-sunset-amber">Live Simulation</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-xl bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/50 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">smartphone</span></button>
+<button class="p-2 rounded-xl bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/50 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">tablet</span></button>
+</div>
+</div>
+<div class="flex-1 overflow-auto p-8 flex flex-col items-center gap-8 bg-gradient-to-b from-sunset-deep/40 to-sunset-plum/60">
+<div class="w-64 aspect-[9/18.5] bg-[#050505] rounded-[3rem] border-[8px] border-[#222] shadow-2xl relative overflow-hidden sunset-glow">
+<div class="h-7 flex justify-between items-center px-7 pt-3">
+<span class="text-[9px] font-bold text-white/90">9:41</span>
+<div class="flex gap-1.5 text-white/90">
+<span class="material-symbols-outlined text-[10px]">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[10px]">wifi</span>
+<span class="material-symbols-outlined text-[10px]">battery_very_low</span>
+</div>
+</div>
+<div class="p-4">
+<div class="flex items-center gap-2.5 mb-4">
+<div class="size-7 rounded-full bg-cover bg-center border border-sunset-coral/30" data-alt="Brand profile icon" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAO2XnP4HjHCxvgVwk0ryeUj-fmylALOg87kaDLuBVgfY5ihWEcxuG8Bsr9mN-uGHDEW0yr6gEpREZtuuBi68_Nsv2VNjFiItHN9zfcpXJsKa7of_3f-IRfdo1l-gsAY6YMgpGTg3JmRc7px0YarTy4FETxorO-mjtRjDq1R5w_WUaxVUGnvDzdZc8Twvz7pdh7sqkPXVOnSxLSYWxsa8jjqNoEIJLtFo_q7DjLJ6O2oECF1UD1WpaalIPPJxDWbu-Aob43nNaXb6Rm')"></div>
+<div class="flex flex-col">
+<span class="text-[9px] font-bold text-white">sunset_strat_hq</span>
+<span class="text-[7px] text-sunset-peach/60">Professional Strategy</span>
+</div>
+<span class="material-symbols-outlined text-[12px] ml-auto text-sunset-peach/60">more_vert</span>
+</div>
+<div class="aspect-square w-full rounded-2xl bg-cover bg-center mb-4 shadow-inner" data-alt="Luxury lifestyle" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCyVoJAZd4NKhPU7FhuBcMY4NUDLSCe7aMlvcGkxXsHFALqhfYCYdcYvWs-dlCdwJ4_2AUPPqU3dlvfLpTfVt54rOv8reeU9otaGIQ3vFm5ipvOUVwHDDwJB_wCiRKSIPZGTClzeceR7BZiDGf4tAq2LIMoSbKT7VMJuYoK_q9zNrmXrXgg7ZIzEtv-fOyeMBbhhdzLRfAZsH4_YZBoaDyqnHUotrcPNmKtLJl1qwiB59J7_RJhvptnUcSDD2l9WtSpsWopzRiPKsQR')"></div>
+<div class="flex gap-3 mb-3 text-white/90">
+<span class="material-symbols-outlined text-sm">favorite</span>
+<span class="material-symbols-outlined text-sm">mode_comment</span>
+<span class="material-symbols-outlined text-sm">send</span>
+<span class="material-symbols-outlined text-sm ml-auto text-sunset-coral">bookmark</span>
+</div>
+<p class="text-[9px] leading-[1.4] text-white/80 line-clamp-3">
+<span class="font-bold text-white">sunset_strat_hq</span> Harnessing the golden hour of brand growth. Our Q4 Sunset Dashboard is now live for all elite partners...
+                                    </p>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="bg-sunset-plum/60 border border-border-plum rounded-xl p-4">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] text-sunset-peach/60 font-bold tracking-widest uppercase">AI Engagement Forecast</span>
+<span class="text-[10px] text-sunset-coral font-black">OPTIMAL</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-sunset-plum rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-sunset-coral to-sunset-peach" style="width: 94%"></div>
+</div>
+<span class="text-xs font-bold text-white">94%</span>
+</div>
+</div>
+<div class="bg-sunset-plum/60 border border-border-plum rounded-xl p-4">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[10px] text-sunset-peach/60 font-bold tracking-widest uppercase">Market Resonance</span>
+<span class="text-[10px] text-sunset-amber font-black">HIGH TIER</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex-1 h-1.5 bg-sunset-plum rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-sunset-amber to-sunset-peach" style="width: 88%"></div>
+</div>
+<span class="text-xs font-bold text-white">88%</span>
+</div>
+</div>
+<button class="w-full bg-sunset-deep text-sunset-peach hover:bg-sunset-coral hover:text-sunset-plum border border-sunset-peach/20 py-3 rounded-xl text-xs font-bold transition-all uppercase tracking-widest">
+                                    Optimize Content Flow
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 glass-card border border-border-plum rounded-2xl flex flex-col">
+<div class="p-6 border-b border-border-plum flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sunset-amber">auto_awesome</span>
+<span class="text-sm font-bold uppercase tracking-widest text-sunset-amber">AI Content Strategist</span>
+</div>
+<div class="flex gap-2">
+<button class="p-2 rounded-xl bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/50 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">download</span></button>
+<button class="p-2 rounded-xl bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/50 hover:text-white transition-all"><span class="material-symbols-outlined text-lg">share</span></button>
+</div>
+</div>
+<div class="flex-1 overflow-auto p-6">
+<div class="max-w-4xl mx-auto space-y-6">
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<h3 class="text-lg font-bold mb-4 text-sunset-peach">Brand Configuration</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs text-sunset-peach/60 font-bold uppercase tracking-wider mb-2">Brand Name</label>
+<input type="text" id="brandName" placeholder="e.g., Sunset Strategies" class="w-full bg-sunset-deep/60 border border-border-plum rounded-lg px-4 py-2 text-white placeholder-sunset-peach/40 focus:outline-none focus:border-sunset-coral transition-colors">
+</div>
+<div>
+<label class="block text-xs text-sunset-peach/60 font-bold uppercase tracking-wider mb-2">Niche</label>
+<input type="text" id="niche" placeholder="e.g., Digital Marketing" class="w-full bg-sunset-deep/60 border border-border-plum rounded-lg px-4 py-2 text-white placeholder-sunset-peach/40 focus:outline-none focus:border-sunset-coral transition-colors">
+</div>
+<div>
+<label class="block text-xs text-sunset-peach/60 font-bold uppercase tracking-wider mb-2">Platform</label>
+<select id="platform" class="w-full bg-sunset-deep/60 border border-border-plum rounded-lg px-4 py-2 text-white focus:outline-none focus:border-sunset-coral transition-colors">
+<option value="instagram">Instagram</option>
+<option value="tiktok">TikTok</option>
+<option value="linkedin">LinkedIn</option>
+<option value="twitter">Twitter/X</option>
+<option value="facebook">Facebook</option>
+</select>
+</div>
+<div>
+<label class="block text-xs text-sunset-peach/60 font-bold uppercase tracking-wider mb-2">Goal</label>
+<input type="text" id="goal" placeholder="e.g., Increase brand awareness" class="w-full bg-sunset-deep/60 border border-border-plum rounded-lg px-4 py-2 text-white placeholder-sunset-peach/40 focus:outline-none focus:border-sunset-coral transition-colors">
+</div>
+<div class="col-span-2">
+<label class="block text-xs text-sunset-peach/60 font-bold uppercase tracking-wider mb-2">Tone</label>
+<select id="tone" class="w-full bg-sunset-deep/60 border border-border-plum rounded-lg px-4 py-2 text-white focus:outline-none focus:border-sunset-coral transition-colors">
+<option value="professional">Professional</option>
+<option value="casual">Casual</option>
+<option value="inspirational">Inspirational</option>
+<option value="educational">Educational</option>
+<option value="humorous">Humorous</option>
+<option value="luxury">Luxury</option>
+</select>
+</div>
+</div>
+<button onclick="generateStrategy()" class="w-full bg-gradient-to-r from-sunset-coral to-sunset-peach text-sunset-plum py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2 hover:opacity-90 transition-opacity sunset-glow mt-6">
+<span class="material-symbols-outlined font-bold">auto_awesome</span>
+Generate Content Strategy
+</button>
+</div>
+
+<div id="strategyOutput" class="hidden space-y-6">
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold text-sunset-peach">30-Day Content Calendar</h3>
+<button onclick="copyToClipboard('calendarOutput')" class="p-2 rounded-lg bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/60 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div id="calendarOutput" class="max-h-64 overflow-y-auto space-y-2 text-xs"></div>
+</div>
+
+<div class="grid grid-cols-2 gap-6">
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-sunset-peach">Post Ideas</h3>
+<button onclick="copyToClipboard('ideasOutput')" class="p-2 rounded-lg bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/60 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div id="ideasOutput" class="space-y-2 text-xs"></div>
+</div>
+
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-sunset-peach">Ready-to-Post Captions</h3>
+<button onclick="copyToClipboard('captionsOutput')" class="p-2 rounded-lg bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/60 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div id="captionsOutput" class="space-y-2 text-xs"></div>
+</div>
+</div>
+
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-sunset-peach">Hashtag Strategy</h3>
+<button onclick="copyToClipboard('hashtagsOutput')" class="p-2 rounded-lg bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/60 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div id="hashtagsOutput" class="grid grid-cols-3 gap-4 text-xs"></div>
+</div>
+
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-sunset-peach">Cost Optimization & Strategy</h3>
+<button onclick="copyToClipboard('optimizationOutput')" class="p-2 rounded-lg bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/60 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div id="optimizationOutput" class="text-xs"></div>
+</div>
+
+<div class="glass-card border border-border-plum rounded-xl p-6">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-sunset-peach">Reusable Prompts</h3>
+<button onclick="copyToClipboard('promptsOutput')" class="p-2 rounded-lg bg-sunset-plum/40 hover:bg-sunset-deep text-sunset-peach/60 hover:text-white transition-all">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+</button>
+</div>
+<div id="promptsOutput" class="space-y-2 text-xs"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<script>
+function generateStrategy() {
+    const brandName = document.getElementById('brandName').value || 'Your Brand';
+    const niche = document.getElementById('niche').value || 'Your Niche';
+    const platform = document.getElementById('platform').value;
+    const goal = document.getElementById('goal').value || 'Increase engagement';
+    const tone = document.getElementById('tone').value;
+
+    const postTypes = ['Reel', 'Carousel', 'Story', 'Testimonial', 'CTA'];
+    const calendar = [];
+    
+    for (let i = 1; i <= 30; i++) {
+        calendar.push({
+            day: `Day ${i}`,
+            type: postTypes[Math.floor(Math.random() * postTypes.length)],
+            idea: generateContentIdea(niche, tone, i)
+        });
+    }
+
+    const postIdeas = generatePostIdeas(niche, tone, 10);
+    const captions = generateCaptions(brandName, niche, tone, 10);
+    const hashtags = generateHashtags(niche, platform);
+    const costOptimization = generateCostOptimization(platform, goal);
+    const reusablePrompts = generateReusablePrompts(niche, tone);
+
+    const strategyData = {
+        calendar,
+        postIdeas,
+        captions,
+        hashtags,
+        costOptimization,
+        reusablePrompts
+    };
+
+    displayResults(strategyData);
+    document.getElementById('strategyOutput').classList.remove('hidden');
+}
+
+function generateContentIdea(niche, tone, day) {
+    const ideas = [
+        `Behind the scenes of ${niche} excellence`,
+        `Expert tip: ${niche} mastery revealed`,
+        `Client success story in ${niche}`,
+        `Day ${day} progress update`,
+        `${niche} trend analysis`,
+        `Interactive ${niche} Q&A session`,
+        `Myth vs reality in ${niche}`,
+        `Future of ${niche} discussion`,
+        `${niche} case study breakdown`,
+        `Quick ${niche} hack tutorial`
+    ];
+    return ideas[Math.floor(Math.random() * ideas.length)];
+}
+
+function generatePostIdeas(niche, tone, count) {
+    const ideas = [];
+    for (let i = 0; i < count; i++) {
+        ideas.push(`${niche} industry insights and expert analysis for maximum impact`);
+    }
+    return ideas;
+}
+
+function generateCaptions(brandName, niche, tone, count) {
+    const captions = [];
+    for (let i = 0; i < count; i++) {
+        captions.push(`Transform your ${niche} strategy with ${brandName}. Unlock unprecedented growth and engagement through our proven methodologies. #${niche.replace(/\s+/g, '')}Success`);
+    }
+    return captions;
+}
+
+function generateHashtags(niche, platform) {
+    return {
+        niche: [`#${niche.replace(/\s+/g, '')}Experts`, `#${niche.replace(/\s+/g, '')}Pro`, `#${niche.replace(/\s+/g, '')}Tips`, `#${niche.replace(/\s+/g, '')}Life`, `#${niche.replace(/\s+/g, '')}Daily`],
+        medium: ['#IndustryInsights', '#ExpertAdvice', '#ProfessionalTips', '#BusinessGrowth', '#SuccessStories'],
+        broad: ['#Marketing', '#Business', '#Success', '#Growth', '#Leadership']
+    };
+}
+
+function generateCostOptimization(platform, goal) {
+    return `Optimize your ${platform} strategy by focusing on high-engagement content during peak hours. Allocate 60% of budget to video content, 30% to interactive posts, and 10% to experimental formats. Track ROI metrics weekly and adjust spend based on performance data to maximize ${goal} effectiveness while minimizing acquisition costs.`;
+}
+
+function generateReusablePrompts(niche, tone) {
+    return [
+        `Generate 5 viral ${niche} content ideas for ${tone} audience`,
+        `Create a 30-day ${niche} content calendar with engagement hooks`,
+        `Write compelling ${niche} captions that drive conversions`,
+        `Design ${niche} hashtag strategy for maximum reach`,
+        `Develop ${tone} ${niche} storytelling framework for brand growth`
+    ];
+}
+
+function displayResults(data) {
+    document.getElementById('calendarOutput').innerHTML = data.calendar.map(item => 
+        `<div class="flex justify-between items-center p-2 bg-sunset-deep/30 rounded-lg">
+            <span class="font-bold text-sunset-coral">${item.day}</span>
+            <span class="text-sunset-peach">${item.type}</span>
+            <span class="text-white/80">${item.idea}</span>
+        </div>`
+    ).join('');
+
+    document.getElementById('ideasOutput').innerHTML = data.postIdeas.map(idea => 
+        `<div class="p-2 bg-sunset-deep/30 rounded-lg text-white/80">• ${idea}</div>`
+    ).join('');
+
+    document.getElementById('captionsOutput').innerHTML = data.captions.map(caption => 
+        `<div class="p-2 bg-sunset-deep/30 rounded-lg text-white/80">${caption}</div>`
+    ).join('');
+
+    document.getElementById('hashtagsOutput').innerHTML = `
+        <div>
+            <h4 class="font-bold text-sunset-coral mb-2">Niche-Specific</h4>
+            <div class="space-y-1">${data.hashtags.niche.map(tag => `<div class="text-sunset-peach">${tag}</div>`).join('')}</div>
+        </div>
+        <div>
+            <h4 class="font-bold text-sunset-amber mb-2">Medium Reach</h4>
+            <div class="space-y-1">${data.hashtags.medium.map(tag => `<div class="text-sunset-peach">${tag}</div>`).join('')}</div>
+        </div>
+        <div>
+            <h4 class="font-bold text-sunset-peach mb-2">Broad Reach</h4>
+            <div class="space-y-1">${data.hashtags.broad.map(tag => `<div class="text-sunset-peach">${tag}</div>`).join('')}</div>
+        </div>
+    `;
+
+    document.getElementById('optimizationOutput').innerHTML = `<p class="text-white/80 leading-relaxed">${data.costOptimization}</p>`;
+
+    document.getElementById('promptsOutput').innerHTML = data.reusablePrompts.map(prompt => 
+        `<div class="p-2 bg-sunset-deep/30 rounded-lg text-white/80">• ${prompt}</div>`
+    ).join('');
+}
+
+function copyToClipboard(elementId) {
+    const element = document.getElementById(elementId);
+    const text = element.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        const button = event.target.closest('button');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<span class="material-symbols-outlined text-sm">check</span>';
+        setTimeout(() => {
+            button.innerHTML = originalHTML;
+        }, 2000);
+    });
+}
+</script>
+</body>
+</html>
